@@ -9,7 +9,7 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 144
+  - offset: 173
     length: 130
     placeholder_text: |-
       self.capacity_volume = capacity_volume  # объем стакана
@@ -18,7 +18,7 @@ files:
       length: 130
       offset: 144
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: |-
       print(self.__dict__)

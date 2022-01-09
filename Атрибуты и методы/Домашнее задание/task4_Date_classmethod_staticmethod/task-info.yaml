@@ -3,35 +3,35 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 555
-    length: 11
+  - offset: 696
+    length: 1
     placeholder_text: '...  # TODO'
     initial_state:
       length: 11
       offset: 555
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '...'
-  - offset: 709
-    length: 11
+  - offset: 990
+    length: 1
     placeholder_text: '...  # TODO'
     initial_state:
       length: 11
       offset: 709
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '...'
-  - offset: 845
-    length: 11
+  - offset: 1625
+    length: 1
     placeholder_text: '...  # TODO'
     initial_state:
       length: 11
       offset: 845
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: '...'
   text: |
     class Date:
@@ -70,6 +70,8 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  time: Sat, 01 Jan 2022 21:25:39 UTC
 record: -1
 post_submission_on_open: true

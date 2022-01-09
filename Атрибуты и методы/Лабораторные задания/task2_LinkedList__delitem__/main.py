@@ -8,7 +8,6 @@ class LinkedList:
         """Конструктор связного списка"""
         self.len = 0
         self.head: Optional[Node] = None
-
         if data is not None:
             for value in data:
                 self.append(value)
@@ -16,7 +15,6 @@ class LinkedList:
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
         append_node = Node(value)
-
         if self.head is None:
             self.head = append_node
         else:
@@ -66,9 +64,27 @@ class LinkedList:
         node.value = value
 
     def __delitem__(self, index: int):
-        ...  # TODO проверка индекса
+        if not isinstance(index, int):
+            raise TypeError()
+        if not 0 <= index < self.len:
+            raise IndexError()
+        #проверка индекса
 
-        ...  # TODO алгоритм удаления
+        #алгоритм удаления
+        if index == 0:
+            self.head = self.head.next
+        elif index == self.len - 1:
+            end_node = self.step_by_step_on_nodes(index-1)
+            end_node.next = None
+        else:
+            prev_node = self.step_by_step_on_nodes(index-1)
+            del_node = prev_node.next
+            next_node = del_node.next
+
+            self.linked_nodes(prev_node, next_node)
+
+        self.len -= 1
+
 
     def to_list(self) -> list:
         return [linked_list_value for linked_list_value in self]

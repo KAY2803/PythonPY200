@@ -9,3 +9,4 @@ if __name__ == "__main__":
     print(glass.__class__)
 
     print(type(glass) == glass.__class__)
+

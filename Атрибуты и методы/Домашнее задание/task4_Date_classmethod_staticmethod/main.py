@@ -14,19 +14,54 @@ class Date:
 
         self.is_valid_date(self.day, self.month, self.year)
 
-    def is_leap_year(self, year: int):
+    @staticmethod
+    def is_leap_year(year: int):
         """Проверяет, является ли год високосным"""
-        ...  # TODO
+        if year % 4 == 0:
+            return f'{year} - високосный год'
+        else:
+            return f'{year} - обычный год'
+        #
 
-    def get_max_day(self, month: int, year: int):
+    @staticmethod
+    def get_max_day(month: int, year: int):
         """Возвращает максимальное количество дней в месяце для указанного года"""
-        ...  # TODO
+        if year % 4 == 0:
+            return Date.DAY_OF_MONTH[1][month-1]
+        else:
+            return Date.DAY_OF_MONTH[0][month-1]
+        #
 
     def is_valid_date(self, day: int, month: int, year: int):
         """Проверяет, является ли дата корректной"""
-        ...  # TODO
+        if not isinstance(day, int):
+            raise TypeError
+        if not isinstance(month, int):
+            raise TypeError
+        if not isinstance(year, int):
+            raise TypeError
+        if 1 > year:
+            raise ValueError
+        if 1 > month or month > 12:
+            raise ValueError
+
+        if 1 > day or day > self.get_max_day(month, year):
+            raise ValueError
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({self.day},{self.month},{self.year})'
+
+        #
 
 
 if __name__ == "__main__":
-    # Write your solution here
+    date1 = Date(1, 12, 2021)
+    print(date1)
+    print(date1.is_leap_year(2021))
+    print(date1.get_max_day(12, 2021))
+
+    date2 = Date(20, 2, 1976)
+    print(date2)
+    print(date2.is_leap_year(1976))
+    print(date2.get_max_day(2, 1976))
     pass
