@@ -108,7 +108,11 @@ class LinkedList:
         return LinkedList(other * self.to_list())
 
     def __imul__(self, other: int) -> "LinkedList":
-        ...  # TODO определить одновременное умножение и присваивание
+        if not isinstance(other, int):
+            raise TypeError
+
+        return self * other
+        # определить одновременное умножение и присваивание
 
 
 if __name__ == "__main__":

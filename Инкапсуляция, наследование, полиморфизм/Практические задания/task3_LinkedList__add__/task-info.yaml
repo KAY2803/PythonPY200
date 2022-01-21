@@ -9,15 +9,15 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 2194
-    length: 56
+  - offset: 2346
+    length: 46
     placeholder_text: '...  # TODO реализовать конкатенацию последовательностей'
     initial_state:
       length: 56
       offset: 2194
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if not isinstance(other, LinkedList):
                   raise TypeError
@@ -150,5 +150,8 @@ files:
             self.is_valid(next_)
             self._next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 18 Jan 2022 21:00:11 UTC
 record: -1

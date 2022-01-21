@@ -69,8 +69,13 @@ class LinkedList:
     def __str__(self) -> str:
         return f"{self.to_list()}"
 
-    def __add__(self, other: "LinkedList") -> "LinkedList":
-        ...  # TODO реализовать конкатенацию последовательностей
+    def __add__(self, other: "LinkedList") -> None:
+         if not isinstance(other, LinkedList):
+             raise TypeError()
+         for value in other:
+             self.append(value)
+         return self
+        # реализовать конкатенацию последовательностей
 
 
 if __name__ == "__main__":

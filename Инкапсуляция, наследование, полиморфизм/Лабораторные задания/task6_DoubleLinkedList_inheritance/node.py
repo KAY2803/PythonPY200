@@ -32,4 +32,24 @@ class Node:
         self.is_valid(next_)
         self._next = next_
 
-# TODO реализовать класс DoubleLinkedNode
+# реализовать класс DoubleLinkedNode
+
+class DoubleLinkedNode(Node):
+    """ Класс, который описывает двусвязный узел связного списка. """
+
+    def __init__(self, value: Any, prev: Optional["Node"] = None, next_: Optional["Node"] = None):
+        super().__init__(value=value, next_=next_)
+        self.prev = prev
+
+    def __repr__(self) -> str:
+        return f"Node({self.prev}, Node({self.value}), Node({self.next}))"
+
+    @property
+    def prev_(self):
+        return self.prev
+
+    @prev_.setter
+    def prev_(self, prev: Optional["Node"]):
+        self.is_valid(prev)
+        self.prev = prev
+

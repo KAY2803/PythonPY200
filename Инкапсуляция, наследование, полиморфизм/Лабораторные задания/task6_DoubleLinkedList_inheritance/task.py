@@ -26,7 +26,7 @@ class LinkedList:
 
         self.len += 1
 
-    def step_by_step_on_nodes(self, index: int) -> Node:
+    def _step_by_step_on_nodes(self, index: int) -> Node:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
         if not isinstance(index, int):
             raise TypeError()
@@ -45,19 +45,19 @@ class LinkedList:
         """
         Функция, которая связывает между собой два узла.
 
-        :param left_node: Левый или предыдущий узел
+        :param left_node: Левый или предшествующий узел
         :param right_node: Правый или следующий узел
         """
         left_node.next = right_node
 
     def __getitem__(self, index: int) -> Any:
         """ Метод возвращает значение узла по указанному индексу. """
-        node = self.step_by_step_on_nodes(index)
+        node = self._step_by_step_on_nodes(index)
         return node.value
 
     def __setitem__(self, index: int, value: Any) -> None:
         """ Метод устанавливает значение узла по указанному индексу. """
-        node = self.step_by_step_on_nodes(index)
+        node = self._step_by_step_on_nodes(index)
         node.value = value
 
     def to_list(self) -> list:
@@ -70,4 +70,42 @@ class LinkedList:
         return f"{self.to_list()}"
 
 
-# TODO Реализовать класс DoubleLinkedList
+# Реализовать класс DoubleLinkedList
+
+class DoubleLinkedList(LinkedList):
+    def __init__(self, data: Iterable = None):
+        super().__init__(data=data)
+        self.left: Node
+
+    def append(self, value: Any):
+        """ Добавление элемента в конец двусвязного списка. """
+        append_node = Node(value)
+
+        if self.head is None:
+            self.head = self.tail = self.left = append_node
+        elif self.len == 1:
+            self.linked_nodes(self.head, append_node)
+            self.tail = append_node
+        else:
+            self.linked_nodes(self.left, self.tail, append_node)
+            self.left = self.tail
+            self.tail = append_node
+        self.len += 1
+
+    @staticmethod
+    def linked_nodes(prev_node: Node, center_node: Optional[Node] = None, right_node: Optional[Node] = None) -> None:
+        """
+        Функция, которая связывает между собой три узла.
+
+        :param prev_node: Узел, предшествующий центральному узлу
+        :param center_node: Центральный узел
+        :param right_node: Правый или следующий узел
+        """
+        prev_node.next = center_node
+        center_node.next = right_node
+
+
+list_ = [1, 2, 3]
+ll = DoubleLinkedList(list_)
+ll.append(7)
+print(repr(ll))

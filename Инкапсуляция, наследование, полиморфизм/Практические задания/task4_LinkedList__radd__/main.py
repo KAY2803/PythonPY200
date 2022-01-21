@@ -78,8 +78,9 @@ class LinkedList:
 
         return self
 
-    # TODO определить метод сложения, когда LinkedList находится справа от оператора сложения
-
+    # определить метод сложения, когда LinkedList находится справа от оператора сложения
+    def __radd__(self, other: list):
+        return LinkedList(other) + self
 
 if __name__ == "__main__":
     ll = LinkedList()
