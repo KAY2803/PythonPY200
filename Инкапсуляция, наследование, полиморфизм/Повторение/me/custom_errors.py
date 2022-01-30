@@ -14,6 +14,10 @@ class DriverNotFoundError(Exception):
     pass
 
 
+class InvalidLicense(Exception):
+    pass
+
+
 class MoveStop(Exception):
     pass
 

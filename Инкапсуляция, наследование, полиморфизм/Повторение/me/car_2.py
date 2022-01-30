@@ -23,6 +23,7 @@ class Car:
 
         self.__mileage = 0
         self.__driver = None
+        self.driver_license = None
         self.__engine_status = False
         self.__count_TO = 0
         self.__status_TO = False
@@ -67,6 +68,11 @@ class Car:
         self.__driver = driver
         self.__key_owner = True
 
+    def check_driver_license(self):
+        if self.driver.license is not None:
+            return True
+        return False
+
     # Эквивалент свойствам (property)
     # def set_driver(self, driver: Driver):
     #     if not isinstance(driver, Driver):
@@ -108,6 +114,8 @@ class Car:
             raise EngineIsNotRunning("двигатель не запущен")
         if not self.__check_driver():
             raise DriverNotFoundError("водитель не найден")
+        if not self.check_driver_license():
+            raise InvalidLicense("водительские права недействительны")
         if not self.check_TO():
             raise TechnicInspection(f"ТО не пройдено. Автомобиль не поедет")
         if self.fuel == 0:
@@ -200,6 +208,7 @@ if __name__ == '__main__':
     car_2 = Car('черный', 'седан', 'модель', 'бензин', 'автомат', 'люкс')
 
     car.driver = Driver("Иван", Experience((0, 5), (5, 10), (10, 60), 5))
+    car.driver.license = 1234567890, 2020, 11, 12
     car.start_engine = "Заведись"
     car.fuel = 0.5
     car.move()
