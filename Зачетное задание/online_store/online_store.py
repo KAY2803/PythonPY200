@@ -105,7 +105,7 @@ class User:
         """
         self._login = login
         self._password = password
-        self.identification = None
+        self.identification = False
         self._check_identification('name', 'password')
         self.goods = []
         self.basket = Basket([])
@@ -121,15 +121,18 @@ class User:
         :param password: пароль
         :return: True, если параметры введены корректно
         """
-        name = input('Введите логин: ')
-        password = input('Введите пароль: ')
-        try:
-            if name == self._login and password == self._password:
-                self.identification = True
-                print('Welcome our store! Have a good shoping!\n')
-                return self.identification
-        except PasswordError:
-            print('Логин и/или пароль введены неверно')
+        while True:
+            name = input('Введите логин: ')
+            password = input('Введите пароль: ')
+            try:
+                if name == self._login and password == self._password:
+                    self.identification = True
+                    print('Welcome our store! Have a good shoping!\n')
+                    return self.identification
+                break
+            except PasswordError:
+                print('Логин и/или пароль введены неверно')
+                continue
 
     def _look_goods(self):
         """Смотрим и выбираем товаров. Метод возвращает массив выбранных товаров."""
