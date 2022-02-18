@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Инкапсуляция, наследование, полиморфизм/Повторение/PythonPY1001" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Инкапсуляция, наследование, полиморфизм/Повторение/PythonPY_111" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Инкапсуляция, наследование, полиморфизм/Повторение/car_factory" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Инкапсуляция, наследование, полиморфизм/Повторение/common" vcs="Git" />
   </component>

@@ -17,7 +17,7 @@ class User:
 
     login: str
     password: str
-    basket: Basket([]) = None
+    basket: Basket() = None
 
 
 if __name__ == '__main__':
